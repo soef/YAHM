@@ -394,7 +394,8 @@ create_bridge()
         countdown
         info "... to late ;)"
 
-        service networking restart
+        #service networking restart
+        /etc/init.d/networking restart 
 
 	if [ $is_static -eq 0 ]
 	then
