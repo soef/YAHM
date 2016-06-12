@@ -31,7 +31,7 @@ Folgende Betrebssysteme werden aktuel unterstützt:
 
 _(Die Einrichtung des HM-MOD-RPI-PCB erfolgt automatisiert ausschließlich auf Rapsberry Pi)_
 
-**Weitere Informationen und Anleitungen können dem [Wiki](https://github.com/leonsio/YAHM/wiki) bzw. dem [Homematic-Forum](http://homematic-forum.de/forum/viewtopic.php?f=18&t=31033) entnommen werden.**
+**Weitere Informationen und Anleitungen können dem [Wiki](https://github.com/soef/YAHM/wiki) bzw. dem [Homematic-Forum](http://homematic-forum.de/forum/viewtopic.php?f=18&t=31033) entnommen werden.**
 
 ## Installation:
 
@@ -39,15 +39,15 @@ _(Die Einrichtung des HM-MOD-RPI-PCB erfolgt automatisiert ausschließlich auf R
 Es wird automatisch ein aktuelles CCU2 Image installiert und das Netzwerk konfiguriert. Diese Installation ist für wenig erfahrene Benutzer auf einem frischen minimalen Debian/Raspbian empfehlenswert.  Die frisch installierte CCU2 wird eine IP per DHCP abrufen, diese kann durch **sudo yahm-ctl info** nach dem Start des Kontainers angezeigt werden.
 
 ```
-wget -nv -O- https://raw.githubusercontent.com/leonsio/YAHM/master/yahm-init | sudo -E  bash -s quickinstall -
+wget -nv -O- https://raw.githubusercontent.com/soef/YAHM/master/yahm-init | sudo -E  bash -s quickinstall -
 ```
 
 ### Angepasst:
 
-Mit dieser Methode wird lediglich die aktuelle YAHM Version runtergeladen und unter **/opt/YAHM/bin** installiert, anschließend muss mit Hilfe von YAHM ein [LXC Kontainer](https://github.com/leonsio/YAHM/wiki/YAHM-LXC) angelegt und das [Netzwerk](https://github.com/leonsio/YAHM/wiki/YAHM-Netzwerk) konfiguriert werden.
+Mit dieser Methode wird lediglich die aktuelle YAHM Version runtergeladen und unter **/opt/YAHM/bin** installiert, anschließend muss mit Hilfe von YAHM ein [LXC Kontainer](https://github.com/soef/YAHM/wiki/YAHM-LXC) angelegt und das [Netzwerk](https://github.com/soef/YAHM/wiki/YAHM-Netzwerk) konfiguriert werden.
 
 ```
-wget -nv -O- https://raw.githubusercontent.com/leonsio/YAHM/master/yahm-init | sudo -E  bash -
+wget -nv -O- https://raw.githubusercontent.com/soef/YAHM/master/yahm-init | sudo -E  bash -
 ```
 
 Folgende Schritte sind mindestens notwendig um ein CCU2 Image innerhalb von YAHM zu installieren:
@@ -61,7 +61,7 @@ sudo yahm-network attach_bridge
 Anschließend kann mit **sudo yahm-ctl start** das Kontainer gestartet werden
 
 ### Aktivierung Rapsberry Pi Funkmodul
-Nach der erfolgreichen Installation von YAHM kann das Funkmodul aktiviert werden, für weitere Informationen siehe [YAHM-Module](https://github.com/leonsio/YAHM/wiki/YAHM-Module)
+Nach der erfolgreichen Installation von YAHM kann das Funkmodul aktiviert werden, für weitere Informationen siehe [YAHM-Module](https://github.com/soef/YAHM/wiki/YAHM-Module)
 
 ```
 yahm-module -m hm-mod-rpi-pcb enable
@@ -69,14 +69,14 @@ yahm-module -m hm-mod-rpi-pcb enable
 
 **Achtung:** Im Zuge der Installation wird ein Reboot benötigt
 
-**Hinweis:** Die Konfiguration des Funkmoduls durch das hm-mod-rpi-pcb Modul, erfolgt ausschließlich auf einem Raspberry Pi. Für die Installation auf einer anderen Hardware sind die Installationsschritte im [Wiki](https://github.com/leonsio/YAHM/wiki/YAHM-Module:-HM-MOD-RPI-PCB) hinterlegt
+**Hinweis:** Die Konfiguration des Funkmoduls durch das hm-mod-rpi-pcb Modul, erfolgt ausschließlich auf einem Raspberry Pi. Für die Installation auf einer anderen Hardware sind die Installationsschritte im [Wiki](https://github.com/soef/YAHM/wiki/YAHM-Module:-HM-MOD-RPI-PCB) hinterlegt
 
 ### Migration CCU2/LXCCU zu YAHM
-Für die Migration von CCU2 bzw. LXCCU zu YAHM bitte folgenden [Wiki-Eintrag](https://github.com/leonsio/YAHM/wiki/Migration-von-CCU-zu-YAHM) beachten. Es müssen keine Geräte neu angelernt werden. Sollten LAN-Gateways im Betrieb sein, muss einmalig unter **EINSTELLUNGEN - SYSTEMSTEUERUNG - LAN GATEWAY** die Zuordnung überprüft/angepasst werden
+Für die Migration von CCU2 bzw. LXCCU zu YAHM bitte folgenden [Wiki-Eintrag](https://github.com/soef/YAHM/wiki/Migration-von-CCU-zu-YAHM) beachten. Es müssen keine Geräte neu angelernt werden. Sollten LAN-Gateways im Betrieb sein, muss einmalig unter **EINSTELLUNGEN - SYSTEMSTEUERUNG - LAN GATEWAY** die Zuordnung überprüft/angepasst werden
 
 ## Hinweise
 ### Homematic-IP
-Die aktuelle CCU2 Firmware (ab 2.15.x) beinhaltet die Unterstützung für Homematic-IP. Diese wird zum aktuellen Zeitpunkt (04/2016) **NICHT** durch YAHM unterstützt und wird durch das [Homematic-IP Modul](https://github.com/leonsio/YAHM/wiki/YAHM-Module:-Homematic-IP) nachgereicht. Damit in der CCU2 Oberfläche keine Fehlermeldungen hinsichtlich **HMIP-RF** bzw. **VirtualDevices** auftauchen wird empfohlen die Unterstützung von Homematic-IP durch YAHM zu deaktivieren.
+Die aktuelle CCU2 Firmware (ab 2.15.x) beinhaltet die Unterstützung für Homematic-IP. Diese wird zum aktuellen Zeitpunkt (04/2016) **NICHT** durch YAHM unterstützt und wird durch das [Homematic-IP Modul](https://github.com/soef/YAHM/wiki/YAHM-Module:-Homematic-IP) nachgereicht. Damit in der CCU2 Oberfläche keine Fehlermeldungen hinsichtlich **HMIP-RF** bzw. **VirtualDevices** auftauchen wird empfohlen die Unterstützung von Homematic-IP durch YAHM zu deaktivieren.
 
 ```
 sudo yahm-module -f -m homematic-ip disable
@@ -85,7 +85,7 @@ sudo yahm-module -f -m homematic-ip disable
 **Hinweis:** Im Zuge der automatisierten Installation wird Homematic-IP automatisch deaktiviert, die Durchführung oben genannter Schritte ist nicht notwendig.
 
 ### Updates
-Mit **sudo yahm-ctl update** kann YAHM Installation (nicht CCU2 Firmware) jederzeit aktualisiert werden. Für die Aktualisierung der CCU2 Installation, siehe [LXC Kontainer](https://github.com/leonsio/YAHM/wiki/YAHM-LXC)
+Mit **sudo yahm-ctl update** kann YAHM Installation (nicht CCU2 Firmware) jederzeit aktualisiert werden. Für die Aktualisierung der CCU2 Installation, siehe [LXC Kontainer](https://github.com/soef/YAHM/wiki/YAHM-LXC)
 
 ### Kostenfaktor
 Dieses Projekt wurde **nicht** dafür entworfen die Anschaffungskosten einer CCU2 zu reduzieren.
