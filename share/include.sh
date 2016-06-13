@@ -66,8 +66,8 @@ else
 fi
 
 # check architecture 
-#case `dpkg --print-architecture` in
-case $ARCH in
+case `dpkg --print-architecture` in
+#case $ARCH in
     armhf|armv6l|armv7l|arm64|aarch64)
         ARCH="ARM"
         ;;
